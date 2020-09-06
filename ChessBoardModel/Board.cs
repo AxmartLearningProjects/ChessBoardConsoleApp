@@ -31,5 +31,56 @@ namespace ChessBoardModel
 
         }
 
+        public void MarkNextLegalMoves(Cell currentCell, string chessPiece)
+        {
+
+            // clear the board
+            for (int i = 0; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    TheGrid[i, j].CurrentlyOccupied = false;
+                    TheGrid[i, j].LegalNextMove = false;
+                }
+            }
+
+
+            // find all legal moves and mark the cells as legal
+
+            switch (chessPiece)
+            {
+                case "Knight":
+                    TheGrid[currentCell.RowNumber + 2, currentCell.ColumnNumber + 1].LegalNextMove = true;
+                    TheGrid[currentCell.RowNumber + 2, currentCell.ColumnNumber - 1].LegalNextMove = true;
+                    TheGrid[currentCell.RowNumber - 2, currentCell.ColumnNumber + 1].LegalNextMove = true;
+                    TheGrid[currentCell.RowNumber - 2, currentCell.ColumnNumber - 1].LegalNextMove = true;
+                    TheGrid[currentCell.RowNumber + 1, currentCell.ColumnNumber + 2].LegalNextMove = true;
+                    TheGrid[currentCell.RowNumber + 1, currentCell.ColumnNumber - 2].LegalNextMove = true;
+                    TheGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber + 2].LegalNextMove = true;
+                    TheGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber - 2].LegalNextMove = true;
+
+
+                    break;
+
+                case "King":
+                    break;
+
+                case "Rook":
+                    break;
+
+                case "Bishop":
+                    break;
+
+                case "Queen":
+                    break;
+
+
+                default:
+                    break;
+            }
+
+        }
+
+
     }
 }
