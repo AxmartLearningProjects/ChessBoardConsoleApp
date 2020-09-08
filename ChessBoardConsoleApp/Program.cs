@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,13 +39,25 @@ namespace ChessBoardConsoleApp
             // get x and y coordinate
 
             Console.WriteLine("Enter the row number");
-            int currentRow = int.Parse(Console.ReadLine());
+            int currentRow;
+            while (!int.TryParse(Console.ReadLine(), out currentRow) || currentRow >= myBoard.Size || currentRow < 0)
+            {
+                Console.WriteLine("Please enter a valid row number");
+            }
+
+
 
             Console.WriteLine("Enter the column number");
-            int currentColumn = int.Parse(Console.ReadLine());
+            int currentColumn;
+            while (!int.TryParse(Console.ReadLine(), out currentColumn) || currentColumn >= myBoard.Size || currentColumn < 0)
+            {
+                Console.WriteLine("Please enter a valid column number");
+            }
 
 
-            
+
+
+
 
             return myBoard.TheGrid[currentRow, currentColumn];
         }
