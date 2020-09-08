@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace ChessBoardModel
@@ -50,14 +51,14 @@ namespace ChessBoardModel
             switch (chessPiece)
             {
                 case "Knight":
-                    TheGrid[currentCell.RowNumber + 2, currentCell.ColumnNumber + 1].LegalNextMove = true;
-                    TheGrid[currentCell.RowNumber + 2, currentCell.ColumnNumber - 1].LegalNextMove = true;
-                    TheGrid[currentCell.RowNumber - 2, currentCell.ColumnNumber + 1].LegalNextMove = true;
-                    TheGrid[currentCell.RowNumber - 2, currentCell.ColumnNumber - 1].LegalNextMove = true;
-                    TheGrid[currentCell.RowNumber + 1, currentCell.ColumnNumber + 2].LegalNextMove = true;
-                    TheGrid[currentCell.RowNumber + 1, currentCell.ColumnNumber - 2].LegalNextMove = true;
-                    TheGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber + 2].LegalNextMove = true;
-                    TheGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber - 2].LegalNextMove = true;
+                    markCell(currentCell, 2, 1);
+                    markCell(currentCell, 2, -1);
+                    markCell(currentCell, -2, 1);
+                    markCell(currentCell, -2, -1);
+                    markCell(currentCell, 1, 2);
+                    markCell(currentCell, 1, -2);
+                    markCell(currentCell, -1, 2);
+                    markCell(currentCell, -1, -2);
 
 
                     break;
@@ -84,5 +85,24 @@ namespace ChessBoardModel
         }
 
 
+        private void markCell(Cell currentCell, int row, int column)
+
+        {
+            if (cellIsSafe(currentCell,row,column))
+            {
+                TheGrid[currentCell.RowNumber + row, currentCell.ColumnNumber + column].LegalNextMove = true;
+            }
+           
+
+
+        }
+
+        private bool cellIsSafe(Cell currentCell,int row, int column)
+        {
+
+            return this.Size > currentCell.RowNumber + row && this.Size > currentCell.ColumnNumber + column && 0 <= currentCell.RowNumber + row && 0 <= currentCell.ColumnNumber + column;
+            
+
+        }
     }
 }
