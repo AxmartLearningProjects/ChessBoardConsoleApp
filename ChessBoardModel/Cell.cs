@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChessBoardModel
 {
-    class Cell
+    public class Cell
     {
 
      

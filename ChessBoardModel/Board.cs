@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChessBoardModel
 {
-    class Board
+    public class Board
     {
 
         public int Size { get; set; }
