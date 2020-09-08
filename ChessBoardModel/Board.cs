@@ -78,6 +78,8 @@ namespace ChessBoardModel
                 default:
                     break;
             }
+            TheGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
+
 
         }
 

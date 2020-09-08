@@ -21,13 +21,32 @@ namespace ChessBoardConsoleApp
 
             // ask for x and y coordinates
 
+            Cell currentCell = setCurrentCell();
+            currentCell.CurrentlyOccupied = true;
 
             // calculate all legal moves 
-
+            myBoard.MarkNextLegalMoves(currentCell, "Knight");
 
             // print the chess board 
-
+            printBoard(myBoard);
             Console.ReadKey();
+        }
+
+        private static Cell setCurrentCell()
+        {
+
+            // get x and y coordinate
+
+            Console.WriteLine("Enter the row number");
+            int currentRow = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the column number");
+            int currentColumn = int.Parse(Console.ReadLine());
+
+
+            
+
+            return myBoard.TheGrid[currentRow, currentColumn];
         }
 
         private static void printBoard(Board myBoard)
