@@ -78,17 +78,42 @@ namespace ChessBoardModel
                     break;
 
                 case "rook":
+                    for (int i = 1; i < this.Size; i++)
+                    {
+                        markCell(currentCell, i, 0);
+                        markCell(currentCell, i*-1, 0);
+                        markCell(currentCell, 0, i);
+                        markCell(currentCell, 0, i*-1);
+
+                    }
                     break;
 
                 case "bishop":
+                    for (int i = 1; i < this.Size; i++)
+                    {
+                        markCell(currentCell, i, i);
+                        markCell(currentCell, i * -1, i);
+                        markCell(currentCell, i*-1, i*-1);
+                        markCell(currentCell, i, i * -1);
+
+                    }
                     break;
 
                 case "queen":
+                    for (int i = 1; i < this.Size; i++)
+                    {
+                    markCell(currentCell, i, 0);
+                    markCell(currentCell, i * -1, 0);
+                    markCell(currentCell, 0, i);
+                    markCell(currentCell, 0, i * -1);
+                    markCell(currentCell, i, i);
+                    markCell(currentCell, i * -1, i);
+                    markCell(currentCell, i*-1, i*-1);
+                    markCell(currentCell, i, i * -1);
+                    }
+
                     break;
 
-
-                default:
-                    break;
             }
             TheGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
 
