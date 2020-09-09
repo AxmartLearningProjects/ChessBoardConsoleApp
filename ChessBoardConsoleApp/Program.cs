@@ -26,11 +26,35 @@ namespace ChessBoardConsoleApp
             currentCell.CurrentlyOccupied = true;
 
             // calculate all legal moves 
-            myBoard.MarkNextLegalMoves(currentCell, "Knight");
+
+            myBoard.MarkNextLegalMoves(currentCell, chosenPiece());
 
             // print the chess board 
             printBoard(myBoard);
             Console.ReadKey();
+        }
+
+        private static string chosenPiece()
+        {
+
+            Console.WriteLine("Enter the name of the chess piece");
+            string piece = Console.ReadLine().ToLower();
+
+            while (true)
+            {
+                if (piece == "knight" || piece == "king" || piece == "rook" || piece == "queen" || piece == "bishop")
+                {
+                    return piece;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid piece name");
+                    piece = Console.ReadLine();
+
+                }
+            }
+
+
         }
 
         private static Cell setCurrentCell()

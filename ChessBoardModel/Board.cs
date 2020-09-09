@@ -50,7 +50,7 @@ namespace ChessBoardModel
 
             switch (chessPiece)
             {
-                case "Knight":
+                case "knight":
                     markCell(currentCell, 2, 1);
                     markCell(currentCell, 2, -1);
                     markCell(currentCell, -2, 1);
@@ -63,16 +63,27 @@ namespace ChessBoardModel
 
                     break;
 
-                case "King":
+                case "king":
+                    markCell(currentCell, 0, 1);
+                    markCell(currentCell, 0, -1);
+                    markCell(currentCell, 1, 0);
+                    markCell(currentCell, 1, 1);
+                    markCell(currentCell, 1, -1);
+                    markCell(currentCell, -1, 0);
+                    markCell(currentCell, -1, 1);
+                    markCell(currentCell, -1, -1);
+                    
+                    
+
                     break;
 
-                case "Rook":
+                case "rook":
                     break;
 
-                case "Bishop":
+                case "bishop":
                     break;
 
-                case "Queen":
+                case "queen":
                     break;
 
 
