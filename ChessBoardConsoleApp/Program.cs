@@ -92,27 +92,40 @@ namespace ChessBoardConsoleApp
             // print the chess board using an X for the piece location and + sign for legal move
             for (int i = 0; i < myBoard.Size; i++)
             {
+                for (int x = 0; x < myBoard.Size; x++)
+                {
+                    Console.Write("+---");
+                }
+                Console.WriteLine("+");
+
+
                 for (int j = 0; j < myBoard.Size; j++)
                 {
                     Cell c = myBoard.TheGrid[i, j];
-
+                    Console.Write("|");
                     if (c.CurrentlyOccupied)
                     {
-                        Console.Write("X");
+                        Console.Write(" X ");
                     }
                     else if (c.LegalNextMove)
                     {
-                        Console.Write("+");
+                        Console.Write(" + ");
                     }
                     else
                     {
-                        Console.Write(".");
+                        Console.Write("   ");
                     }
+                    
 
                 }
-                Console.WriteLine();
+                Console.WriteLine("|");
 
             }
+            for (int x = 0; x < myBoard.Size; x++)
+            {
+                Console.Write("+---");
+            }
+            Console.WriteLine("+");
 
             Console.WriteLine("===========================================");
         }
